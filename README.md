@@ -43,12 +43,13 @@ cmake --build .
 ```
 OOP_MAI_LAB3/
 ├── include/           # Заголовочные файлы
-│   ├── Figure.h
-│   ├── Hexagon.h
-│   ├── Point.h
-│   ├── Rhomb.h
-│   ├── Vector_figures.h
-│   └── Pentagon.h
+│   ├── Figure.hpp
+│   ├── Hexagon.hpp
+│   ├── Point.hpp
+│   ├── Rhomb.hpp
+│   ├── Vector_figures.hpp
+│   ├── MyVector.hpp
+│   └── Pentagon.hpp
 ├── src/               # Исходные файлы
 │   ├── main.cpp
 │   ├── Figure.cpp
@@ -56,6 +57,7 @@ OOP_MAI_LAB3/
 │   ├── Hexagon.cpp
 │   ├── Pentagon.cpp
 │   ├── Rhomb.cpp
+│   ├── MyVector.cpp
 │   └── Vector_figures.cpp
 ├── test/              # Тесты Google Test
 │   ├── main_test.cpp
