@@ -10,7 +10,7 @@ public:
     Point(double, double);
     Point(const Point&);
     Point(Point&&);
-    Point& operator=(const Point& other);
+    Point& operator=(const Point&);
 
     friend bool operator==(const Point&, const Point&);
     friend bool operator!=(const Point&, const Point&);

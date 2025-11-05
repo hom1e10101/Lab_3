@@ -12,11 +12,11 @@ int main() {
     std::cin >> n;
     
     Vector_figures v;
-    std::cout << "1 - hex\n2 - pent\n3 - rhomb\n";
     for (size_t i = 0; i < n; ++i) {
+        std::cout << "\n1 - hex\n2 - pent\n3 - rhomb\n";
         int f;
         std::cin >> f;
-        
+
         Figure* now = nullptr;
         if (f == 1) {
             now = new Hexagon;
@@ -32,7 +32,7 @@ int main() {
     std::cout << v.size() << "\n";
 
     for (size_t i = 0; i < v.size(); ++i) {
-        std::cout << v[i]->getArea() << "\n";
+        std::cout << v[i]->getArea() << " ";
     }
 
     std::cout << "\nINPUT ERASE INDEX: ";

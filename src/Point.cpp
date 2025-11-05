@@ -9,10 +9,10 @@ Point::Point(const Point& other) : x(other.x), y(other.y) {}
 Point::Point(Point&& other) : x(other.x), y(other.y) {}
 
 Point& Point::operator=(const Point& other) {
-    if (this != &other) {
-        x = other.x;
-        y = other.y;
-    }
+    x = other.x;
+    y = other.y;
+
+    return *this;
 }
 
 bool operator==(const Point& a, const Point& b) {

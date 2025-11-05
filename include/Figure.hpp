@@ -5,6 +5,7 @@
 #include <vector>
 
 #include "Point.hpp"
+#include "MyVector.hpp"
 
 class Figure {
 public:
@@ -21,12 +22,12 @@ public:
     friend bool operator!=(const Figure&, const Figure&);
 
     virtual size_t getPointsCnt() const = 0;
-    std::vector<Point> points;
+    MyVector points;
+    void sorting(MyVector&);
 protected:
     
-    long double CalcArea(const std::vector<Point>&) const;
-    Point CalcCenter(const std::vector<Point>&) const;
-    void sorting(std::vector<Point>&);
+    long double CalcArea(const MyVector&) const;
+    Point CalcCenter(const MyVector&) const;
 };
 
 inline std::ostream& operator<<(std::ostream& os, const Figure& fig) {
@@ -36,5 +37,6 @@ inline std::ostream& operator<<(std::ostream& os, const Figure& fig) {
 
 inline std::istream& operator>>(std::istream& is, Figure& fig) {
     fig.read(is);
+    fig.sorting(fig.points);
     return is;
 }

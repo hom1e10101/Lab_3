@@ -14,6 +14,7 @@ set(LIB_SOURCES
     src/Point.cpp
     src/Rhomb.cpp
     src/Vector_figures.cpp
+    src/MyVector.cpp
 )
 
 add_executable(geometry_figures ${MAIN_SOURCE} ${LIB_SOURCES} ${HEADERS})

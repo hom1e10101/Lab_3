@@ -39,6 +39,7 @@ void Vector_figures::erase(size_t ind) {
     for (size_t i = ind; i < sz - 1; ++i) {
         data[i] = data[i + 1];
     }
+    sz--;
 }
 
 Figure* Vector_figures::operator[](size_t ind) {

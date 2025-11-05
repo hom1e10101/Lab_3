@@ -5,29 +5,39 @@
 
 void Figure::print(std::ostream& os) const {
     for (size_t i = 0; i < getPointsCnt(); ++i) {
-        Point kek = points[i];
-        os << kek << " ";
+        // Point kek = points[i];
+        os << points[i] << " ";
     }
 }
 
 void Figure::read(std::istream& is) {
     points.resize(getPointsCnt());
     for (size_t i = 0; i < getPointsCnt(); ++i) {
+        std::cerr << "\t" << i << " " << points.capacity << " " << points.size() << "\n";
         is >> points[i];
     }
 }
 
-void Figure::sorting(std::vector<Point>& v) {
-    Point center = getCenter();
-
-    std::sort(points.begin(), points.end(), [&center](const Point& a, const Point& b) {
-        double angleA = atan2(a.y - center.y, a.x - center.x);
-        double angleB = atan2(b.y - center.y, b.x - center.x);
-        return angleA > angleB;
-    });
+bool comp(const Point& center, const Point& a, const Point& b) {
+    double angleA = atan2(a.y - center.y, a.x - center.x);
+    double angleB = atan2(b.y - center.y, b.x - center.x);
+    
+    return angleA > angleB;
 }
 
-long double Figure::CalcArea(const std::vector<Point>& v) const {
+void Figure::sorting(MyVector& v) {
+    Point center = getCenter();
+
+    for (size_t i = 0; i < v.size(); ++i) {
+        for (size_t j = i + 1; j < v.size(); ++j) {
+            if (comp(center, v[i], v[j])) {
+                std::swap(v[i], v[j]);
+            }
+        }
+    }
+}
+
+long double Figure::CalcArea(const MyVector& v) const {
     long double res{0.0};
 
     for (size_t i = 0; i < v.size(); ++i) {
@@ -39,7 +49,7 @@ long double Figure::CalcArea(const std::vector<Point>& v) const {
 }
 
 
-Point Figure::CalcCenter(const std::vector<Point>& t) const {
+Point Figure::CalcCenter(const MyVector& t) const {
     double x = 0, y = 0;
     
     for (size_t i = 0; i < t.size(); ++i) {
