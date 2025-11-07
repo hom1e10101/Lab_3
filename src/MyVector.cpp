@@ -1,6 +1,7 @@
 #include <new>
 #include <exception>
 
+// #include "include/MyVector.hpp"
 #include "MyVector.hpp"
 
 void MyVector::pop()
@@ -73,7 +74,7 @@ void MyVector::resize(size_t newsize) {
 }
 
 Point& MyVector::operator[](size_t ind) {
-    if (ind > sz) {
+    if (ind >= sz) {
         throw std::out_of_range("ind is bigger then size of MyVector");
     }
 
@@ -81,7 +82,7 @@ Point& MyVector::operator[](size_t ind) {
 }
 
 const Point& MyVector::operator[](size_t ind) const {
-    if (ind > sz) {
+    if (ind >= sz) {
         throw std::out_of_range("ind is bigger then size of MyVector");    
     }
 
@@ -114,6 +115,3 @@ MyVector::~MyVector() noexcept
     delete[] data;
     data = nullptr;
 }
-
-
-
